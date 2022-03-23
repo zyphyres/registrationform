@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calendar</title>
+
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            background-image: url(https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTh8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=700&q=60);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Nunito', sans-serif;
+        }
+        .calendar{
+            padding: 30px;
+            border-radius: 20px;
+            background:linear-gradient(140deg, rgb(173, 0, 101), rgb(2, 9, 211));
+            box-shadow: 0 0 12px rgb(175, 36, 36);
+        }
+        .month-week h1{
+            color: rgb(108, 168, 247);
+            padding-bottom: 15px;
+            margin-left: 5px;
+        }
+        .month-week{
+            display:block;
+            padding-left: 230px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            
+        }
+        
+        .month-week span{
+            font-size: 15px;
+            margin:20px;
+            margin-left: 0; 
+            background-color: rgb(108, 168, 247);
+            color: rgb(255, 255, 255);
+            padding: 6px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .month-week span:last-child{
+            background-color: transparent;
+            color: rgb(108, 168, 247);
+            border: 1px solid rgb(108, 168, 247);
+            
+        }
+        .weeks{
+            margin-bottom: 15px;
+        }
+        .weeks span{
+            padding: 30px;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(108, 168, 247);
+           
+            
+        }
+        .days{
+            display: flex;
+            color: rgb(180, 180, 180);
+            font-weight: 800;
+            
+        }
+        .days span{
+            width: 14.30%;
+            text-align: center;
+            padding: 30px 20px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            transition: .5s;
+        }
+        .days span:not(.next-mont):before{
+            content: "";
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 90%;
+            background-color: rgb(108, 168, 247);
+            border-radius: 10% ;
+            z-index: -1;
+            opacity: 0;
+            transition: .5s;
+        }
+        .days span:not(.next-mont):hover{
+            color: #fff;
+
+        }
+        .days span:not(.next-mont):hover::before{
+            opacity: 1;
+        }
+        .next-mont{
+            color: rgb(114, 114, 114) !important;
+            cursor: not-allowed !important;
+        }
+        .birthday{
+            font-size: larger;
+            font-weight: 800;
+        }
+        @media screen and (max-width: 800px){
+            .calendar{
+                padding:30px;
+            }
+            .month-week{
+                padding-left: 0;
+            }
+            .weeks span{
+                padding: 8px;
+            }
+            .days span{
+                display: flex;
+                width: 13%;
+            }
+            @media screen and (max-width: 480px){
+            .calendar{
+                padding:30px;
+            }
+            .month-week{
+                padding-left: 0;
+            }
+            .weeks span{
+                padding: 8px;
+            }
+            .days span{
+                display: flex;
+                width: 13%;
+            }
+        }  
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="month-week">
+            <h1>April, 2001</h1>
+            <div class="m_w">
+                <span>Month</span>
+                <span>Week</span>
+            </div>
+        </div>
+        <div class="weeks">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+        </div>
+        <div class="days">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+            <span>7</span>
+        </div>
+        <div class="days">
+            <span>8</span>
+            <span>9</span>
+            <span>10</span>
+            <span>11</span>
+            <span>12</span>
+            <span>13</span>
+            <span>14</span>
+        </div>
+        <div class="days">
+            <span>15</span>
+            <span>16</span>
+            <span>17</span>
+            <span>18</span>
+            <span>19</span>
+            <span>20</span>
+            <span>21</span>
+        </div>
+        <div class="days">
+            <span>22</span>
+            <span>23</span>
+            <span>24</span>
+            <span>25</span>
+            <span>26</span>
+            <span>27</span>
+            <span>28</span>
+        </div>
+        <div class="days">
+            <span class="birthday">29</span>
+            <span>30</span>
+            <span class="next-mont">1</span>
+            <span class="next-mont">2</span>
+            <span class="next-mont">3</span>
+            <span class="next-mont">4</span>
+            <span class="next-mont">5</span>
+        </div>
+    </div>
+</body>
+</html>
